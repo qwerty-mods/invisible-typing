@@ -32,16 +32,8 @@ export async function start(): Promise<void> {
       }
     });
   }
-
-  // @ts-expect-error temp until replugged gets builtin
-  window.invisibletyping = {
-    Icon,
-  };
 }
 
 export function stop(): void {
   inject.uninjectAll();
-
-  // @ts-expect-error temp until replugged gets builtin
-  delete window.invisibletyping;
 }
