@@ -5,6 +5,7 @@ import "./style.css";
 const inject = new Injector();
 
 export { Settings } from "./Settings";
+export { Icon } from "./Icon";
 
 export interface SettingsType {
   button?: boolean;

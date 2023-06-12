@@ -19,7 +19,7 @@ export const Icon = () => (
           />
           <rect
             className={`disabled-stroke-through${
-              cfg.get("invisible", true) ? " invistype-disabled" : ""
+              !cfg.get("invisible", true) ? " invistype-disabled" : ""
             }`}
             x="10"
             y="10"
