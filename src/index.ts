@@ -1,5 +1,4 @@
 import { Injector, settings, webpack } from "replugged";
-import { Icon } from "./Icon";
 
 import "./style.css";
 
