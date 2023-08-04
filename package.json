@@ -1,6 +1,6 @@
 {
   "name": "invisible-typing",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Make your typing invisible",
   "engines": {
     "node": ">=18.0.0",
@@ -20,7 +20,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^18.16.16",
     "@types/react": "^18.2.8",
@@ -31,7 +31,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.8",
-    "replugged": "^4.3.0",
+    "replugged": "^4.5.1",
     "typescript": "^5.1.3"
   }
 }
