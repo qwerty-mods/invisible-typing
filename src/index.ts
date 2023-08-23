@@ -27,10 +27,10 @@ export async function start(): Promise<void> {
 
   if (typingMod && getChannelMod) {
     inject.instead(typingMod, "startTyping", ([channelId]: [string], original) => {
-      const global = cfg.get("invisible", true);
+      const globalInvisible = cfg.get("invisible", true);
       const channelWise = cfg.get("button", true) ? cfg.get("channelWise", true) : false;
-      const channels = cfg.get("channels", { [channelId]: global });
-      if (channelWise ? channels[channelId] ?? global : global) {
+      const channels = cfg.get("channels", { [channelId]: globalInvisible });
+      if (channelWise ? channels[channelId] ?? globalInvisible : globalInvisible) {
         return null;
       } else {
         return original(channelId);

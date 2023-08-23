@@ -6,11 +6,11 @@ const { React, channels } = common;
 
 export const Icon = () => {
   const channelId = channels.getCurrentlySelectedChannelId()!;
-  const global = cfg.get("invisible", true);
+  const globalInvisible = cfg.get("invisible", true);
   const channelWise = cfg.get("button", true) ? cfg.get("channelWise", true) : false;
-  const channelsList = cfg.get("channels", { [channelId]: global });
+  const channelsList = cfg.get("channels", { [channelId]: globalInvisible });
   const [enabled, setEnabled] = React.useState(
-    channelWise ? channelsList[channelId] ?? global : global,
+    channelWise ? channelsList[channelId] ?? globalInvisible : globalInvisible,
   );
   return (
     <div key={`${enabled}`}>
