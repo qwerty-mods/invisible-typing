@@ -10,6 +10,8 @@ export { Icon } from "./Icon";
 export interface SettingsType {
   button?: boolean;
   invisible?: boolean;
+  channelWise?: boolean;
+  channels?: Record<string, boolean>;
 }
 export const cfg = await settings.init<SettingsType>("dev.kingfish.InvisibleTyping");
 
@@ -24,11 +26,14 @@ export async function start(): Promise<void> {
   }>(webpack.filters.byProps("getChannel"));
 
   if (typingMod && getChannelMod) {
-    inject.instead(typingMod, "startTyping", ([channel], original) => {
-      if (cfg.get("invisible", true)) {
+    inject.instead(typingMod, "startTyping", ([channelId]: [string], original) => {
+      const globalInvisible = cfg.get("invisible", true);
+      const channelWise = cfg.get("button", true) ? cfg.get("channelWise", true) : false;
+      const channels = cfg.get("channels", { [channelId]: globalInvisible });
+      if (channelWise ? channels[channelId] ?? globalInvisible : globalInvisible) {
         return null;
       } else {
-        return original(channel);
+        return original(channelId);
       }
     });
   }
