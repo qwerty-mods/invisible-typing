@@ -5,7 +5,10 @@ import { cfg } from ".";
 const { React, channels } = common;
 
 export const Icon = ({ type }: { type?: { analyticsName?: string } }) => {
-  if (type?.analyticsName !== "normal" && type?.analyticsName !== "sidebar") {
+  if (
+    (type?.analyticsName !== "normal" && type?.analyticsName !== "sidebar") ||
+    !cfg.get("button", true)
+  ) {
     return null;
   }
   const channelId = channels.getCurrentlySelectedChannelId()!;
