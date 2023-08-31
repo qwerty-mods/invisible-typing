@@ -4,7 +4,13 @@ import { cfg } from ".";
 
 const { React, channels } = common;
 
-export const Icon = () => {
+export const Icon = ({ type }: { type?: { analyticsName?: string } }) => {
+  if (
+    (type?.analyticsName !== "normal" && type?.analyticsName !== "sidebar") ||
+    !cfg.get("button", true)
+  ) {
+    return null;
+  }
   const channelId = channels.getCurrentlySelectedChannelId()!;
   const globalInvisible = cfg.get("invisible", true);
   const channelWise = cfg.get("button", true) ? cfg.get("channelWise", true) : false;
