@@ -1,6 +1,6 @@
 {
   "name": "invisible-typing",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Make your typing invisible",
   "engines": {
     "node": ">=18.0.0",
